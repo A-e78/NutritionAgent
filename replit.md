@@ -43,7 +43,7 @@ nutrition-ai-agent/
 
 ### Configuration
 - Frontend configured to run on **port 5000** with host **0.0.0.0**
-- Backend configured to run on **port 8000** with host **localhost**
+- Backend configured to run on **port 8000** with host **0.0.0.0** (required for Replit proxy)
 - CORS enabled on backend to allow frontend requests
 - React development server configured to bypass host header verification (required for Replit proxy)
 
@@ -51,23 +51,12 @@ nutrition-ai-agent/
 - **frontend**: Runs `cd frontend && npm start` on port 5000 (webview)
   - This is the main user-facing application
   - Accessible through Replit's webview
-
-### Running the Backend
-The backend needs to be started manually:
-```bash
-cd backend && python -m uvicorn main:app --host localhost --port 8000
-```
-
-Or start both in the Replit shell:
-```bash
-# In one terminal/background:
-cd backend && python -m uvicorn main:app --host localhost --port 8000 &
-
-# Frontend is already running via workflow
-```
+- **backend**: Runs `cd backend && python -m uvicorn main:app --host 0.0.0.0 --port 8000` (console)
+  - FastAPI backend server
+  - Both workflows start automatically when the Repl runs
 
 ## API Endpoints
-Base URL (local): `http://localhost:8000`
+Base URL (development): The backend is available on port 8000
 
 Available endpoints:
 - `GET /diet/foods` - List all foods
