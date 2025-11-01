@@ -201,6 +201,12 @@ data/*.xlsx
 *.xlsx
 *.json
 
+# Replit specific
+.pythonlibs/
+package.json.backup
+start_backend.sh
+backend.log
+
 # =========================================
 # ⚙️ OS / SYSTEM
 # =========================================
